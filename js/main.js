@@ -10,6 +10,12 @@ let tasks = [];
 if (localStorage.getItem('tasks')) {
     tasks = JSON.parse(localStorage.getItem('tasks'));
     tasks.forEach((task) => renderTask(task));
+
+    if (tasksList.children.length > 1) {
+        emptyListTitle.textContent = 'Ваш список дел'
+    } else {
+        emptyListTitle.textContent = 'Список дел пуст'
+    }
 }
 
 form.addEventListener('submit', addTask)
@@ -113,4 +119,5 @@ function renderTask(task) {
 				</li>`;
 
     tasksList.insertAdjacentHTML('beforeend', taskHtml);
+
 }
